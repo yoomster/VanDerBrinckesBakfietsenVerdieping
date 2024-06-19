@@ -8,6 +8,7 @@ namespace VanDerBrinckesBakfietsenVerdieping.Models
 {
     public class VanDerBrinckesModel
     {
-        public List<RentalModel> Rentals { get; set; }
+        public List<BookingModel> AllBookings { get; set; } = new();
+
     }
 }

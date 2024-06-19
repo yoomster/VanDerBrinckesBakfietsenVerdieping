@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace VanDerBrinckesBakfietsenVerdieping.Models
 {
-    internal class BikeModel
+    public class BikeModel
     {
         public string Name { get; set; }
         public double Price { get; set; }
         public bool Available { get; set; }
-
+        public List<AccessoireModel> Accessoires { get; set; } = new();
     }
 }

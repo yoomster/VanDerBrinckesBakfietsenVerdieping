@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace VanDerBrinckesBakfietsenVerdieping.Models
 {
-    public class RentalModel
+    public class BookingModel
     {
-        public double TotalCostBike { get; ; }
+        public double TotalCostBike
+        {
+            set
+            {
+                TotalCostExtras += value;
+            } 
+        }
         public double DailyCostExtras { get; set; }
         public double TotalCostExtras{ get; set; }
         public int NumberOfRentDays { get; set; }
