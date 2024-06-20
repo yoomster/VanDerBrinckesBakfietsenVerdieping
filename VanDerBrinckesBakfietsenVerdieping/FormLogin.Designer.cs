@@ -41,7 +41,7 @@
             buttonOk.Location = new Point(223, 131);
             buttonOk.Name = "buttonOk";
             buttonOk.Size = new Size(109, 45);
-            buttonOk.TabIndex = 0;
+            buttonOk.TabIndex = 3;
             buttonOk.Text = "Ok";
             buttonOk.UseVisualStyleBackColor = true;
             buttonOk.Click += buttonOk_Click;
@@ -51,7 +51,7 @@
             buttonCancel.Location = new Point(82, 131);
             buttonCancel.Name = "buttonCancel";
             buttonCancel.Size = new Size(109, 45);
-            buttonCancel.TabIndex = 1;
+            buttonCancel.TabIndex = 4;
             buttonCancel.Text = "Cancel";
             buttonCancel.UseVisualStyleBackColor = true;
             buttonCancel.Click += buttonCancel_Click;
@@ -79,14 +79,14 @@
             textBoxUserName.Location = new Point(183, 35);
             textBoxUserName.Name = "textBoxUserName";
             textBoxUserName.Size = new Size(183, 23);
-            textBoxUserName.TabIndex = 4;
+            textBoxUserName.TabIndex = 1;
             // 
             // textBoxPassword
             // 
             textBoxPassword.Location = new Point(183, 74);
             textBoxPassword.Name = "textBoxPassword";
             textBoxPassword.Size = new Size(183, 23);
-            textBoxPassword.TabIndex = 5;
+            textBoxPassword.TabIndex = 2;
             // 
             // FormLogin
             // 

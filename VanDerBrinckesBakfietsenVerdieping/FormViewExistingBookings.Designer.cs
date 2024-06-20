@@ -1,6 +1,6 @@
 ﻿namespace VanDerBrinckesBakfietsenVerdieping
 {
-    partial class FormViewExistingRentals
+    partial class FormViewExistingBookings
     {
         /// <summary>
         /// Required designer variable.

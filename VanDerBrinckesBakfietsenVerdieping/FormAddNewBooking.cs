@@ -7,14 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VanDerBrinckesBakfietsenVerdieping.Models;
 
 namespace VanDerBrinckesBakfietsenVerdieping
 {
-    public partial class FormAddRental : Form
+    public partial class FormAddNewBooking : Form
     {
-        public FormAddRental()
+        private readonly VanDerBrinckesModel _vanDerBrinckes;
+
+
+        public FormAddNewBooking(VanDerBrinckesModel vanDerBrinckes)
         {
-            InitializeComponent();
+                _vanDerBrinckes = vanDerBrinckes;
+
+                InitializeComponent();
         }
 
         private void ButtonCalculateCost_Click(object sender, EventArgs e)

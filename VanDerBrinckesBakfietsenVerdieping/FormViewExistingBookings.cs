@@ -7,12 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VanDerBrinckesBakfietsenVerdieping.Models;
 
 namespace VanDerBrinckesBakfietsenVerdieping
 {
-    public partial class FormViewExistingRentals : Form
+    public partial class FormViewExistingBookings : Form
     {
-        public FormViewExistingRentals()
+        private readonly VanDerBrinckesModel _vanDerBrinckes;
+
+        public FormViewExistingBookings(VanDerBrinckesModel vanDerBrinckes)
         {
             InitializeComponent();
         }

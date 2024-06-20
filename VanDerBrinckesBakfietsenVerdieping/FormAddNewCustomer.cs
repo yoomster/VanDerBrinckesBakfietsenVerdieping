@@ -18,6 +18,8 @@ namespace VanDerBrinckesBakfietsenVerdieping
 
         public FormAddNewCustomer(VanDerBrinckesModel vanDerBrinckes)
         {
+            _vanDerBrinckes = vanDerBrinckes;
+
             InitializeComponent();
         }
 
