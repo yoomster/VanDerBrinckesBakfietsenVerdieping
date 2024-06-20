@@ -16,5 +16,10 @@ namespace VanDerBrinckesBakfietsenVerdieping
         {
             InitializeComponent();
         }
+
+        private void ButtonCalculateCost_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
