@@ -28,12 +28,88 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FormLogin";
+            buttonOk = new Button();
+            buttonCancel = new Button();
+            labelUserName = new Label();
+            labelPassword = new Label();
+            textBoxUserName = new TextBox();
+            textBoxPassword = new TextBox();
+            SuspendLayout();
+            // 
+            // buttonOk
+            // 
+            buttonOk.Location = new Point(223, 131);
+            buttonOk.Name = "buttonOk";
+            buttonOk.Size = new Size(109, 45);
+            buttonOk.TabIndex = 0;
+            buttonOk.Text = "Ok";
+            buttonOk.UseVisualStyleBackColor = true;
+            // 
+            // buttonCancel
+            // 
+            buttonCancel.Location = new Point(82, 131);
+            buttonCancel.Name = "buttonCancel";
+            buttonCancel.Size = new Size(109, 45);
+            buttonCancel.TabIndex = 1;
+            buttonCancel.Text = "Cancel";
+            buttonCancel.UseVisualStyleBackColor = true;
+            // 
+            // labelUserName
+            // 
+            labelUserName.AutoSize = true;
+            labelUserName.Location = new Point(56, 35);
+            labelUserName.Name = "labelUserName";
+            labelUserName.Size = new Size(96, 15);
+            labelUserName.TabIndex = 2;
+            labelUserName.Text = "Gebruikersnaam:";
+            // 
+            // labelPassword
+            // 
+            labelPassword.AutoSize = true;
+            labelPassword.Location = new Point(56, 74);
+            labelPassword.Name = "labelPassword";
+            labelPassword.Size = new Size(81, 15);
+            labelPassword.TabIndex = 3;
+            labelPassword.Text = "Wachtwoord: ";
+            // 
+            // textBoxUserName
+            // 
+            textBoxUserName.Location = new Point(183, 35);
+            textBoxUserName.Name = "textBoxUserName";
+            textBoxUserName.Size = new Size(183, 23);
+            textBoxUserName.TabIndex = 4;
+            // 
+            // textBoxPassword
+            // 
+            textBoxPassword.Location = new Point(183, 74);
+            textBoxPassword.Name = "textBoxPassword";
+            textBoxPassword.Size = new Size(183, 23);
+            textBoxPassword.TabIndex = 5;
+            // 
+            // FormLogin
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(424, 207);
+            Controls.Add(textBoxPassword);
+            Controls.Add(textBoxUserName);
+            Controls.Add(labelPassword);
+            Controls.Add(labelUserName);
+            Controls.Add(buttonCancel);
+            Controls.Add(buttonOk);
+            Name = "FormLogin";
+            Text = "Login";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Button buttonOk;
+        private Button buttonCancel;
+        private Label labelUserName;
+        private Label labelPassword;
+        private TextBox textBoxUserName;
+        private TextBox textBoxPassword;
     }
 }
