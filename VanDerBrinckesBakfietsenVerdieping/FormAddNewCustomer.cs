@@ -7,14 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VanDerBrinckesBakfietsenVerdieping.Models;
 
 namespace VanDerBrinckesBakfietsenVerdieping
 {
     public partial class FormAddNewCustomer : Form
     {
-        public FormAddNewCustomer()
+        private readonly VanDerBrinckesModel _vanDerBrinckes;
+
+
+        public FormAddNewCustomer(VanDerBrinckesModel vanDerBrinckes)
         {
             InitializeComponent();
+        }
+
+        private void FormAddNewCustomer_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
