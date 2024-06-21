@@ -130,7 +130,7 @@
             ExtrasList.CheckOnClick = true;
             ExtrasList.Font = new Font("Segoe UI", 12F);
             ExtrasList.FormattingEnabled = true;
-            ExtrasList.Items.AddRange(new object[] { "Telefoonhouder € 5", "Helm € 10", "Regenhoes € 15", "Babystoel € 20" });
+            ExtrasList.Items.AddRange(new object[] { "" });
             ExtrasList.Location = new Point(55, 146);
             ExtrasList.Name = "ExtrasList";
             ExtrasList.Size = new Size(190, 100);
@@ -211,6 +211,7 @@
             Controls.Add(BikeLabel);
             Name = "FormAddNewBooking";
             Text = "FormAddRental";
+            Load += FormAddNewBooking_Load;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,6 @@ namespace VanDerBrinckesBakfietsenVerdieping
     public partial class FormAddNewBooking : Form
     {
         private readonly VanDerBrinckesModel _vanDerBrinckes;
-
         private BookingModel _booking = new BookingModel();
 
 
@@ -25,13 +25,18 @@ namespace VanDerBrinckesBakfietsenVerdieping
             InitializeComponent();
         }
 
+        private void FormAddNewBooking_Load(object sender, EventArgs e)
+        {
+            ExtrasList.DataSource = _vanDerBrinckes.Accessoires;
+        }
+
         private void StartDatePicker_ValueChanged(object sender, EventArgs e)
         {
             StartDatePicker.MinDate = DateTime.Now.Date;
             ReturnDatePicker.MinDate = StartDatePicker.Value.AddDays(1);
 
             _booking.CalculateTotalNumberOfRentDays(StartDatePicker.Value, ReturnDatePicker.Value);
-            
+
             if (_booking.ValidDate == true)
             {
                 totalDaysLabel.Text = $"Totaal aantal dagen is {_booking.RentDayCount}";
@@ -46,7 +51,7 @@ namespace VanDerBrinckesBakfietsenVerdieping
         private void ReturnDatePicker_ValueChanged(object sender, EventArgs e)
         {
             _booking.CalculateTotalNumberOfRentDays(StartDatePicker.Value, ReturnDatePicker.Value);
-            
+
             if (_booking.ValidDate == true)
             {
                 totalDaysLabel.Text = $"Totaal aantal dagen is {_booking.RentDayCount}";
@@ -60,21 +65,7 @@ namespace VanDerBrinckesBakfietsenVerdieping
 
         private void ButtonCalculateCost_Click(object sender, EventArgs e)
         {
-            //    int extrasCost = 0;
-
-            //    foreach (var index in IndexAddedExtras)
-            //    {
-            //        if (index == 0)
-            //            extrasCost += 5;
-            //        else if (index == 1)
-            //            extrasCost += 10;
-            //        else if (index == 2)
-            //            extrasCost += 15;
-            //        else if (index == 3)
-            //extrasCost += 20;
-        //}
-
-        //    MyBikeOrder.SetDailyExtrasCost(extrasCost);
+            //_booking.CalculateTotalCost();
         }
 
         private void ExtrasList_SelectedIndexChanged(object sender, EventArgs e)
@@ -92,8 +83,8 @@ namespace VanDerBrinckesBakfietsenVerdieping
             //    _vanDerBrinckes.CalculateTotalDayCost();
         }
 
-         private void ChoiceOfBikes_SelectedIndexChanged(object sender, EventArgs e)
-         {
+        private void ChoiceOfBikes_SelectedIndexChanged(object sender, EventArgs e)
+        {
             //    string bikeChoice = ChoiceOfBikes.Text;
 
             //    if (bikeChoice == "Urban Arrow 4 pers. € 20")
@@ -105,15 +96,17 @@ namespace VanDerBrinckesBakfietsenVerdieping
             //    else if (bikeChoice == "Urban Arrow 6 pers. E-Bike € 60")
             //        MyBikeOrder.SetBikeCost(60);
             //    CalculateTotalDayCost();
-         }
+        }
 
 
 
-         private void buttonChooseCustomer_Click(object sender, EventArgs e)
-         {
+        private void buttonChooseCustomer_Click(object sender, EventArgs e)
+        {
             //    var FormAllCustomers = new FormViewExistingCustomers(_vanDerBrinckes);
             //    FormAllCustomers.Show();
             //}
         }
-}
+
+
+    }
 }
