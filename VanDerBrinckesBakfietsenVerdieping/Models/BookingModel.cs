@@ -8,6 +8,11 @@ namespace VanDerBrinckesBakfietsenVerdieping.Models
 {
     public class BookingModel
     {
+        public int RentDayCount { get; set; } = 0;
+        public bool ValidDate { get; set; } = false;
+        public List<AccessoireModel> Accessoires { get; set; }
+        public double DailyCostExtras { get; set; }
+        public double TotalCostExtras { get; set; }
         public double TotalCostBike
         {
             set
@@ -15,11 +20,8 @@ namespace VanDerBrinckesBakfietsenVerdieping.Models
                 TotalCostExtras += value;
             }
         }
-        public double DailyCostExtras { get; set; }
-        public double TotalCostExtras { get; set; }
-        public int RentDayCount { get; set; } = 0;
-        public bool ValidDate { get; set; } = false;
-        public List<AccessoireModel> Accessoires { get; set; }
+
+
 
         public void CalculateTotalNumberOfRentDays(DateTime start, DateTime end)
         {
@@ -39,6 +41,28 @@ namespace VanDerBrinckesBakfietsenVerdieping.Models
             {
                 ValidDate = true;
             }
+        }
+
+
+
+        public void CalculateTotalCost(List<AccessoireModel> accessoires)
+        {
+            int extrasCost = 0;
+            var index = 0;
+
+            foreach (var selectedItem in accessoires)
+            {
+                if (index == 0)
+                    extrasCost += 5;
+                else if (index == 1)
+                    extrasCost += 10;
+                else if (index == 2)
+                    extrasCost += 15;
+                else if (index == 3)
+                    extrasCost += 20;
+            }
+
+            TotalCostExtras += (extrasCost);
         }
     }
 }
