@@ -11,15 +11,9 @@ namespace VanDerBrinckesBakfietsenVerdieping.Models
         public int RentDayCount { get; set; } = 0;
         public bool ValidDate { get; set; } = false;
         public List<AccessoireModel> Accessoires { get; set; }
-        public double DailyCostExtras { get; set; }
-        public double TotalCostExtras { get; set; }
-        public double TotalCostBike
-        {
-            set
-            {
-                TotalCostExtras += value;
-            }
-        }
+        public double DailyCostAccessoires { get; set; }
+        public double TotalCostAccessoires { get; set; }
+        public double TotalCostBike { get;  set; }
 
 
 
@@ -43,26 +37,37 @@ namespace VanDerBrinckesBakfietsenVerdieping.Models
             }
         }
 
-
-
-        public void CalculateTotalCost(List<AccessoireModel> accessoires)
+        public void CalculateCostsAccessoires(List<AccessoireModel> accessoires)
         {
             int extrasCost = 0;
-            var index = 0;
 
-            foreach (var selectedItem in accessoires)
+            //check alleen selected index!!!
+
+            foreach (var index in accessoires)
             {
-                if (index == 0)
-                    extrasCost += 5;
+                if (accessoires.IndexOf() == 0)
+                    DailyCostAccessoires += 5;
                 else if (index == 1)
-                    extrasCost += 10;
+                    DailyCostAccessoires += 10;
                 else if (index == 2)
-                    extrasCost += 15;
+                    DailyCostAccessoires += 15;
                 else if (index == 3)
-                    extrasCost += 20;
+                    DailyCostAccessoires += 20;
+            }
+        }
+
+
+        public void CalculateTotalCost(List<BikeModel> bikes )
+        {
+            TotalCostBike = 0;
+
+            foreach (var selectedItem in bikes)
+            {
+
+
             }
 
-            TotalCostExtras += (extrasCost);
+            TotalCostBike += TotalCostAccessoires;
         }
     }
 }
