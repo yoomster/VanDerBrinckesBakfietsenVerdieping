@@ -11,7 +11,8 @@ namespace VanDerBrinckesBakfietsenVerdieping
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FormLogin());
+            //Application.Run(new FormLogin());   PUT BACK TO THIS AT END
+            Application.Run(new FormHome());
         }
     }
 }
