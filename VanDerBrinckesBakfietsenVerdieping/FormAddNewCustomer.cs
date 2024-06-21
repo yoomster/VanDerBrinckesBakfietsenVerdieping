@@ -31,13 +31,11 @@ namespace VanDerBrinckesBakfietsenVerdieping
                 FirstName = textBoxFirstName.Text,
                 LastName = textBoxLastName.Text,
                 Address = textBoxAddress.Text,
-                HouseNumber = textBoxHouseNumber.Text,
+                HouseNumber = textBoxHouseNumber.Text, //parse into int?
                 Zipcode = textBoxZipcode.Text,
                 City = textBoxCity.Text,
                 Comments = textBoxComments.Text
             };
-
-            //validatie mogelijk in model ipv 6 ifjes hiero?
 
             if (string.IsNullOrEmpty(person.FirstName) || 
                 string.IsNullOrEmpty(person.LastName) || 
@@ -51,6 +49,7 @@ namespace VanDerBrinckesBakfietsenVerdieping
             else 
             {
                 _vanDerBrinckes.AllCustomers.Add(person);
+                //add to list OR add to database
 
                 this.Close();
             }
