@@ -18,7 +18,6 @@ namespace VanDerBrinckesBakfietsenVerdieping
         private readonly VanDerBrinckesModel _vanDerBrinckes;
         private BookingModel _booking = new ();
 
-
         public FormAddNewBooking(VanDerBrinckesModel vanDerBrinckes)
         {
             _vanDerBrinckes = vanDerBrinckes;
@@ -81,7 +80,7 @@ namespace VanDerBrinckesBakfietsenVerdieping
             MessageBox.Show($"Total costs are {_booking.TotalRentalCost}");
 
 
-            //_vanDerBrinckes.AddBooking();
+            //_vanDerBrinckes.AddBooking(); of bij employee
             //new Serialization().SaveToJson(_vanDerBrinckes);
 
             this.Close();
@@ -89,7 +88,22 @@ namespace VanDerBrinckesBakfietsenVerdieping
 
         private void ChoiceOfBikes_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //grab selected bike
+            //put in the ChosenBike prop
+            //Take cost and put this inside the PriceBike prop ?? kan dit?
 
+            int selectedIndex = ChoiceOfBikes.SelectedIndex;
+
+            string bikeChoice = ChoiceOfBikes.Text;
+
+            if (bikeChoice == "Urban Arrow 4 pers. € 20")
+                _booking.CostBike = 20;
+            else if (bikeChoice == "Urban Arrow 6 pers. € 30")
+                _booking.CostBike = 30;
+            else if (bikeChoice == "Urban Arrow 4 pers. E-Bike € 40")
+                _booking.CostBike = 40;
+            else if (bikeChoice == "Urban Arrow 6 pers. E-Bike € 60")
+                _booking.CostBike = 60;
         }
 
         private void buttonChooseCustomer_Click(object sender, EventArgs e)

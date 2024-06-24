@@ -130,7 +130,7 @@
             // 
             ButtonSave.Enabled = false;
             ButtonSave.Font = new Font("Segoe UI", 12F);
-            ButtonSave.Location = new Point(374, 353);
+            ButtonSave.Location = new Point(374, 369);
             ButtonSave.Name = "ButtonSave";
             ButtonSave.Size = new Size(147, 43);
             ButtonSave.TabIndex = 18;
@@ -160,7 +160,7 @@
             // 
             // buttonChooseCustomer
             // 
-            buttonChooseCustomer.Location = new Point(358, 270);
+            buttonChooseCustomer.Location = new Point(452, 262);
             buttonChooseCustomer.Name = "buttonChooseCustomer";
             buttonChooseCustomer.Size = new Size(175, 40);
             buttonChooseCustomer.TabIndex = 26;
@@ -170,9 +170,8 @@
             // 
             // buttonCancel
             // 
-            buttonCancel.Enabled = false;
             buttonCancel.Font = new Font("Segoe UI", 12F);
-            buttonCancel.Location = new Point(151, 353);
+            buttonCancel.Location = new Point(111, 369);
             buttonCancel.Name = "buttonCancel";
             buttonCancel.Size = new Size(147, 43);
             buttonCancel.TabIndex = 27;
