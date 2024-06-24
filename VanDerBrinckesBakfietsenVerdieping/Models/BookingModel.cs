@@ -26,17 +26,6 @@ namespace VanDerBrinckesBakfietsenVerdieping.Models
             }
         }
         public double CostBike { get; set; } = 20; // inaccurate ; need to * RentDayCount 
-
-        public double PriceBike
-        {
-            get
-            {
-                double price = 0;
-                double totalPrice = price * RentDayCount;
-
-                return totalPrice;
-            }
-        }
         public double TotalRentalCost { get; set; }
 
 
@@ -74,3 +63,7 @@ namespace VanDerBrinckesBakfietsenVerdieping.Models
         }
     }
 }
+
+//NEXT TO DO:
+// connect to a database for saving all the customers
+// and also for saving bookings

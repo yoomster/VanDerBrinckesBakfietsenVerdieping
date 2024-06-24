@@ -79,7 +79,6 @@ namespace VanDerBrinckesBakfietsenVerdieping
             _booking.CalculateTotalCost();
             MessageBox.Show($"Total costs are {_booking.TotalRentalCost}");
 
-
             //_vanDerBrinckes.AddBooking(); of bij employee
             //new Serialization().SaveToJson(_vanDerBrinckes);
 
@@ -92,7 +91,7 @@ namespace VanDerBrinckesBakfietsenVerdieping
             //put in the ChosenBike prop
             //Take cost and put this inside the PriceBike prop ?? kan dit?
 
-            int selectedIndex = ChoiceOfBikes.SelectedIndex;
+            //int selectedIndex = ChoiceOfBikes.SelectedIndex;
 
             string bikeChoice = ChoiceOfBikes.Text;
 
