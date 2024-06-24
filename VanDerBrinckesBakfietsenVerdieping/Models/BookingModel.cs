@@ -12,6 +12,7 @@ namespace VanDerBrinckesBakfietsenVerdieping.Models
         public int RentDayCount { get; set; } = 0;
         public bool ValidDate { get; set; } = false;
         public List<AccessoireModel> Accessoires { get; set; } = new();
+        public BikeModel ChosenBike { get; set; }
         public double TotalCostAccessoires { get; set; }
         public double PriceAccessoires
         {
@@ -21,10 +22,21 @@ namespace VanDerBrinckesBakfietsenVerdieping.Models
                 price += Accessoires.Sum(i => i.Price);
                 double totalPrice = price * RentDayCount;
 
-                return price + totalPrice;
+                return totalPrice;
             }
         }
-        public double TotalCostBike { get; set; } = 20; // inaccurate ; need to * RentDayCount 
+        public double CostBike { get; set; } = 20; // inaccurate ; need to * RentDayCount 
+
+        public double PriceBike
+        {
+            get
+            {
+                double price = 0;
+                double totalPrice = price * RentDayCount;
+
+                return totalPrice;
+            }
+        }
         public double TotalRentalCost { get; set; }
 
 
@@ -49,17 +61,16 @@ namespace VanDerBrinckesBakfietsenVerdieping.Models
             }
         }
 
-        public void CalculateCostsAccessoires()
+        public void CalculateCostsBike() // kunnen we dit skippen zoals de accessoires?
         {
-            foreach (AccessoireModel accessoire in Accessoires)
-            {
-                TotalCostAccessoires += accessoire.Price;
-            }
+            CostBike *= RentDayCount;
         }
 
         public void CalculateTotalCost()
         {
-            TotalRentalCost = PriceAccessoires + TotalCostBike;
+            CalculateCostsBike();
+
+            TotalRentalCost = PriceAccessoires + CostBike;
         }
     }
 }
