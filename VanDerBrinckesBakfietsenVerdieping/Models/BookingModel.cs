@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace VanDerBrinckesBakfietsenVerdieping.Models
 {
@@ -10,10 +11,21 @@ namespace VanDerBrinckesBakfietsenVerdieping.Models
     {
         public int RentDayCount { get; set; } = 0;
         public bool ValidDate { get; set; } = false;
-        public List<AccessoireModel> Accessoires { get; set; }
-        public double DailyCostAccessoires { get; set; }
+        public List<AccessoireModel> Accessoires { get; set; } = new();
         public double TotalCostAccessoires { get; set; }
-        public double TotalCostBike { get;  set; }
+        public double PriceAccessoires
+        {
+            get
+            {
+                double price = 0;
+                price += Accessoires.Sum(i => i.Price);
+                double totalPrice = price * RentDayCount;
+
+                return price + totalPrice;
+            }
+        }
+        public double TotalCostBike { get; set; } = 20; // inaccurate ; need to * RentDayCount 
+        public double TotalRentalCost { get; set; }
 
 
 
@@ -37,37 +49,17 @@ namespace VanDerBrinckesBakfietsenVerdieping.Models
             }
         }
 
-        public void CalculateCostsAccessoires(List<AccessoireModel> accessoires)
+        public void CalculateCostsAccessoires()
         {
-            int extrasCost = 0;
-
-            //check alleen selected index!!!
-
-            foreach (var index in accessoires)
+            foreach (AccessoireModel accessoire in Accessoires)
             {
-                if (accessoires.IndexOf() == 0)
-                    DailyCostAccessoires += 5;
-                else if (index == 1)
-                    DailyCostAccessoires += 10;
-                else if (index == 2)
-                    DailyCostAccessoires += 15;
-                else if (index == 3)
-                    DailyCostAccessoires += 20;
+                TotalCostAccessoires += accessoire.Price;
             }
         }
 
-
-        public void CalculateTotalCost(List<BikeModel> bikes )
+        public void CalculateTotalCost()
         {
-            TotalCostBike = 0;
-
-            foreach (var selectedItem in bikes)
-            {
-
-
-            }
-
-            TotalCostBike += TotalCostAccessoires;
+            TotalRentalCost = PriceAccessoires + TotalCostBike;
         }
     }
 }

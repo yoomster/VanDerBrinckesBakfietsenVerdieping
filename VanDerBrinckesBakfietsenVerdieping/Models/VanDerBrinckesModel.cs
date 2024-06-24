@@ -11,14 +11,19 @@ namespace VanDerBrinckesBakfietsenVerdieping.Models
     {
         public List<BookingModel> AllBookings { get; set; } = new();
         public List<CustomerModel> AllCustomers { get; set; } = new();
-        public List<AccessoireModel> Accessoires { get; set; } = new();
+        public List<AccessoireModel> AllAccessoires { get; set; } = new();
+        public List<BikeModel> AllBikes { get; set; } = new();
+        public List<EmployeeModel> AllEmployees { get; set; } = new();
+
+
+
 
         public VanDerBrinckesModel()
         {
-            Accessoires.Add(new AccessoireModel("Telefoonhouder", 5));
-            Accessoires.Add(new AccessoireModel("Helm", 10));
-            Accessoires.Add(new AccessoireModel("Regenhoes", 15));
-            Accessoires.Add(new AccessoireModel("Babystoel", 20));
+            AllAccessoires.Add(new AccessoireModel("Telefoonhouder", 5));
+            AllAccessoires.Add(new AccessoireModel("Helm", 10));
+            AllAccessoires.Add(new AccessoireModel("Regenhoes", 15));
+            AllAccessoires.Add(new AccessoireModel("Babystoel", 20));
         }
     }
 }

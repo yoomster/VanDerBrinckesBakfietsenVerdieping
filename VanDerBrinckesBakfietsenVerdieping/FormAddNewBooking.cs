@@ -9,27 +9,32 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VanDerBrinckesBakfietsenVerdieping.Models;
+using static System.Windows.Forms.CheckedListBox;
 
 namespace VanDerBrinckesBakfietsenVerdieping
 {
     public partial class FormAddNewBooking : Form
     {
         private readonly VanDerBrinckesModel _vanDerBrinckes;
-        private BookingModel _booking = new BookingModel();
+        private BookingModel _booking = new ();
 
 
         public FormAddNewBooking(VanDerBrinckesModel vanDerBrinckes)
         {
             _vanDerBrinckes = vanDerBrinckes;
-
             InitializeComponent();
         }
 
         private void FormAddNewBooking_Load(object sender, EventArgs e)
         {
-            ExtrasList.DataSource = _vanDerBrinckes.Accessoires;
-        }
+            ListBoxAccessoires.DataSource = _vanDerBrinckes.AllAccessoires;
 
+            //OR if issues with datasource
+            //foreach (var item in _vanDerBrinckes.Accessoires)
+            //{
+            //    ExtrasList.Items.Add(item);
+            //}
+        }
         private void StartDatePicker_ValueChanged(object sender, EventArgs e)
         {
             StartDatePicker.MinDate = DateTime.Now.Date;
@@ -40,11 +45,11 @@ namespace VanDerBrinckesBakfietsenVerdieping
             if (_booking.ValidDate == true)
             {
                 totalDaysLabel.Text = $"Totaal aantal dagen is {_booking.RentDayCount}";
-                ButtonCalculateCost.Enabled = true;
+                ButtonSave.Enabled = true;
             }
             else
             {
-                ButtonCalculateCost.Enabled = false;
+                ButtonSave.Enabled = false;
             }
         }
 
@@ -55,50 +60,37 @@ namespace VanDerBrinckesBakfietsenVerdieping
             if (_booking.ValidDate == true)
             {
                 totalDaysLabel.Text = $"Totaal aantal dagen is {_booking.RentDayCount}";
-                ButtonCalculateCost.Enabled = true;
+                ButtonSave.Enabled = true;
             }
             else
             {
-                ButtonCalculateCost.Enabled = false;
+                ButtonSave.Enabled = false;
             }
         }
 
-        private void ButtonCalculateCost_Click(object sender, EventArgs e)
+        private void ButtonSave_Click(object sender, EventArgs e)
         {
-            //_booking.CalculateTotalCost();
-        }
+            _booking.Accessoires.Clear();
 
-        private void ExtrasList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //    IndexAddedExtras.Clear();
+            foreach (AccessoireModel item in ListBoxAccessoires.CheckedItems)
+            {
+                _booking.Accessoires.Add(item);
+            }
 
-            //    for (int i = 0; i < ExtrasList.Items.Count; i++)
-            //    {
-            //        if (ExtrasList.GetItemChecked(i))
-            //        {
-            //            IndexAddedExtras.Add(i);
-            //        }
-            //    }
-            //    CalculateExtrasCost();
-            //    _vanDerBrinckes.CalculateTotalDayCost();
+            _booking.CalculateTotalCost();
+            MessageBox.Show($"Total costs are {_booking.TotalRentalCost}");
+
+
+            //_vanDerBrinckes.AddBooking();
+            //new Serialization().SaveToJson(_vanDerBrinckes);
+
+            this.Close();
         }
 
         private void ChoiceOfBikes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //    string bikeChoice = ChoiceOfBikes.Text;
 
-            //    if (bikeChoice == "Urban Arrow 4 pers. € 20")
-            //        MyBikeOrder.SetBikeCost(20);
-            //    else if (bikeChoice == "Urban Arrow 6 pers. € 30")
-            //        MyBikeOrder.SetBikeCost(30);
-            //    else if (bikeChoice == "Urban Arrow 4 pers. E-Bike € 40")
-            //        MyBikeOrder.SetBikeCost(40);
-            //    else if (bikeChoice == "Urban Arrow 6 pers. E-Bike € 60")
-            //        MyBikeOrder.SetBikeCost(60);
-            //    CalculateTotalDayCost();
         }
-
-
 
         private void buttonChooseCustomer_Click(object sender, EventArgs e)
         {
@@ -107,6 +99,9 @@ namespace VanDerBrinckesBakfietsenVerdieping
             //}
         }
 
-
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

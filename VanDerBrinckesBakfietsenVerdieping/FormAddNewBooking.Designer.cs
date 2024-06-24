@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            CostsPerDayLabel = new Label();
             totalDaysLabel = new Label();
             ReturnDatePicker = new DateTimePicker();
             label1 = new Label();
@@ -36,23 +35,13 @@
             RentDateLlabel = new Label();
             StartDatePicker = new DateTimePicker();
             ChoiceOfBikes = new ComboBox();
-            ExtrasList = new CheckedListBox();
-            ButtonCalculateCost = new Button();
-            TotalCostLabel = new Label();
+            ListBoxAccessoires = new CheckedListBox();
+            ButtonSave = new Button();
             ExtrasLabel = new Label();
             BikeLabel = new Label();
             buttonChooseCustomer = new Button();
+            buttonCancel = new Button();
             SuspendLayout();
-            // 
-            // CostsPerDayLabel
-            // 
-            CostsPerDayLabel.AutoSize = true;
-            CostsPerDayLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            CostsPerDayLabel.Location = new Point(55, 274);
-            CostsPerDayLabel.Name = "CostsPerDayLabel";
-            CostsPerDayLabel.Size = new Size(177, 21);
-            CostsPerDayLabel.TabIndex = 25;
-            CostsPerDayLabel.Text = "Kosten per dag zijn € 20";
             // 
             // totalDaysLabel
             // 
@@ -125,40 +114,29 @@
             ChoiceOfBikes.Text = "Urban Arrow 4 pers. € 20";
             ChoiceOfBikes.SelectedIndexChanged += ChoiceOfBikes_SelectedIndexChanged;
             // 
-            // ExtrasList
+            // ListBoxAccessoires
             // 
-            ExtrasList.CheckOnClick = true;
-            ExtrasList.Font = new Font("Segoe UI", 12F);
-            ExtrasList.FormattingEnabled = true;
-            ExtrasList.Items.AddRange(new object[] { "" });
-            ExtrasList.Location = new Point(55, 146);
-            ExtrasList.Name = "ExtrasList";
-            ExtrasList.Size = new Size(190, 100);
-            ExtrasList.TabIndex = 16;
-            ExtrasList.ThreeDCheckBoxes = true;
-            ExtrasList.SelectedIndexChanged += ExtrasList_SelectedIndexChanged;
+            ListBoxAccessoires.CheckOnClick = true;
+            ListBoxAccessoires.Font = new Font("Segoe UI", 12F);
+            ListBoxAccessoires.FormattingEnabled = true;
+            ListBoxAccessoires.Items.AddRange(new object[] { "" });
+            ListBoxAccessoires.Location = new Point(55, 146);
+            ListBoxAccessoires.Name = "ListBoxAccessoires";
+            ListBoxAccessoires.Size = new Size(190, 100);
+            ListBoxAccessoires.TabIndex = 16;
+            ListBoxAccessoires.ThreeDCheckBoxes = true;
             // 
-            // ButtonCalculateCost
+            // ButtonSave
             // 
-            ButtonCalculateCost.Enabled = false;
-            ButtonCalculateCost.Font = new Font("Segoe UI", 12F);
-            ButtonCalculateCost.Location = new Point(55, 327);
-            ButtonCalculateCost.Name = "ButtonCalculateCost";
-            ButtonCalculateCost.Size = new Size(190, 43);
-            ButtonCalculateCost.TabIndex = 18;
-            ButtonCalculateCost.Text = "Bereken totale kosten";
-            ButtonCalculateCost.UseVisualStyleBackColor = true;
-            ButtonCalculateCost.Click += ButtonCalculateCost_Click;
-            // 
-            // TotalCostLabel
-            // 
-            TotalCostLabel.AutoSize = true;
-            TotalCostLabel.Font = new Font("Segoe UI", 12F);
-            TotalCostLabel.Location = new Point(55, 406);
-            TotalCostLabel.Name = "TotalCostLabel";
-            TotalCostLabel.Size = new Size(100, 21);
-            TotalCostLabel.TabIndex = 17;
-            TotalCostLabel.Text = "Totale kosten";
+            ButtonSave.Enabled = false;
+            ButtonSave.Font = new Font("Segoe UI", 12F);
+            ButtonSave.Location = new Point(374, 353);
+            ButtonSave.Name = "ButtonSave";
+            ButtonSave.Size = new Size(147, 43);
+            ButtonSave.TabIndex = 18;
+            ButtonSave.Text = "Opslaan";
+            ButtonSave.UseVisualStyleBackColor = true;
+            ButtonSave.Click += ButtonSave_Click;
             // 
             // ExtrasLabel
             // 
@@ -182,7 +160,7 @@
             // 
             // buttonChooseCustomer
             // 
-            buttonChooseCustomer.Location = new Point(374, 274);
+            buttonChooseCustomer.Location = new Point(358, 270);
             buttonChooseCustomer.Name = "buttonChooseCustomer";
             buttonChooseCustomer.Size = new Size(175, 40);
             buttonChooseCustomer.TabIndex = 26;
@@ -190,13 +168,25 @@
             buttonChooseCustomer.UseVisualStyleBackColor = true;
             buttonChooseCustomer.Click += buttonChooseCustomer_Click;
             // 
+            // buttonCancel
+            // 
+            buttonCancel.Enabled = false;
+            buttonCancel.Font = new Font("Segoe UI", 12F);
+            buttonCancel.Location = new Point(151, 353);
+            buttonCancel.Name = "buttonCancel";
+            buttonCancel.Size = new Size(147, 43);
+            buttonCancel.TabIndex = 27;
+            buttonCancel.Text = "Annuleren";
+            buttonCancel.UseVisualStyleBackColor = true;
+            buttonCancel.Click += buttonCancel_Click;
+            // 
             // FormAddNewBooking
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(682, 465);
+            Controls.Add(buttonCancel);
             Controls.Add(buttonChooseCustomer);
-            Controls.Add(CostsPerDayLabel);
             Controls.Add(totalDaysLabel);
             Controls.Add(ReturnDatePicker);
             Controls.Add(label1);
@@ -204,9 +194,8 @@
             Controls.Add(RentDateLlabel);
             Controls.Add(StartDatePicker);
             Controls.Add(ChoiceOfBikes);
-            Controls.Add(ExtrasList);
-            Controls.Add(ButtonCalculateCost);
-            Controls.Add(TotalCostLabel);
+            Controls.Add(ListBoxAccessoires);
+            Controls.Add(ButtonSave);
             Controls.Add(ExtrasLabel);
             Controls.Add(BikeLabel);
             Name = "FormAddNewBooking";
@@ -217,8 +206,6 @@
         }
 
         #endregion
-
-        private Label CostsPerDayLabel;
         private Label totalDaysLabel;
         private DateTimePicker ReturnDatePicker;
         private Label label1;
@@ -226,11 +213,11 @@
         private Label RentDateLlabel;
         private DateTimePicker StartDatePicker;
         private ComboBox ChoiceOfBikes;
-        private CheckedListBox ExtrasList;
-        private Button ButtonCalculateCost;
-        private Label TotalCostLabel;
+        private CheckedListBox ListBoxAccessoires;
+        private Button ButtonSave;
         private Label ExtrasLabel;
         private Label BikeLabel;
         private Button buttonChooseCustomer;
+        private Button buttonCancel;
     }
 }

@@ -10,7 +10,7 @@ namespace VanDerBrinckesBakfietsenVerdieping.Models
     public class AccessoireModel
     {
         public string Name { get; set; }
-        public int Price { get; set; }
+        public double Price { get; set; }
 
         public AccessoireModel(string name, int price)
         {

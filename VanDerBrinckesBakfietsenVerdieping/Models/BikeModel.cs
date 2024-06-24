@@ -11,6 +11,5 @@ namespace VanDerBrinckesBakfietsenVerdieping.Models
         public string Name { get; set; }
         public double Price { get; set; }
         public bool Available { get; set; }
-        public List<AccessoireModel> Accessoires { get; set; } = new();
     }
 }
