@@ -8,6 +8,7 @@ namespace VanDerBrinckesBakfietsenVerdieping.Models
 {
     public class BikeModel
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
         public bool Available { get; set; }

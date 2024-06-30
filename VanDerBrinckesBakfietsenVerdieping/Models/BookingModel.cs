@@ -9,6 +9,7 @@ namespace VanDerBrinckesBakfietsenVerdieping.Models
 {
     public class BookingModel
     {
+        public int Id { get; set; }
         public int RentDayCount { get; set; } = 0;
         public bool ValidDate { get; set; } = false;
         public List<AccessoireModel> Accessoires { get; set; } = new();
@@ -27,6 +28,9 @@ namespace VanDerBrinckesBakfietsenVerdieping.Models
         }
         public double CostBike { get; set; } = 20; // inaccurate ; need to * RentDayCount 
         public double TotalRentalCost { get; set; }
+
+        public CustomerModel Customer { get; set; }
+        public EmployeeModel Employee { get; set; }
 
 
 

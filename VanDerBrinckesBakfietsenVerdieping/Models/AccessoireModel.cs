@@ -9,14 +9,15 @@ namespace VanDerBrinckesBakfietsenVerdieping.Models
 {
     public class AccessoireModel
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
 
-        public AccessoireModel(string name, int price)
-        {
-            Name = name;
-            Price = price;
-        }
+        //public AccessoireModel(string name, int price)
+        //{
+        //    Name = name;
+        //    Price = price;
+        //}
 
         public override string ToString()
         {

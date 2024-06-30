@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace VanDerBrinckesBakfietsenVerdieping.Models
 {
@@ -20,10 +21,10 @@ namespace VanDerBrinckesBakfietsenVerdieping.Models
 
         public VanDerBrinckesModel()
         {
-            AllAccessoires.Add(new AccessoireModel("Telefoonhouder", 5));
-            AllAccessoires.Add(new AccessoireModel("Helm", 10));
-            AllAccessoires.Add(new AccessoireModel("Regenhoes", 15));
-            AllAccessoires.Add(new AccessoireModel("Babystoel", 20));
+            AllAccessoires.Add(new AccessoireModel { Name = "Telefoonhouder", Price = 5 });
+            AllAccessoires.Add(new AccessoireModel { Name = "Helm", Price = 10});
+            AllAccessoires.Add(new AccessoireModel{ Name = "Regenhoes", Price = 15 });
+            AllAccessoires.Add(new AccessoireModel{ Name = "Babystoel", Price = 20 });
         }
     }
 }

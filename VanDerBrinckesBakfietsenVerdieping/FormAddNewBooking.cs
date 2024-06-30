@@ -95,6 +95,10 @@ namespace VanDerBrinckesBakfietsenVerdieping
 
             string bikeChoice = ChoiceOfBikes.Text;
 
+            //get selected bike
+            //get price from select
+            //add price to the 
+
             if (bikeChoice == "Urban Arrow 4 pers. € 20")
                 _booking.CostBike = 20;
             else if (bikeChoice == "Urban Arrow 6 pers. € 30")
